@@ -25,10 +25,17 @@ if ($.contains(document.body, document.getElementById('slider-main'))) {
         loop: true,
         autoplay: {
             delay: 5000,
+            disableOnInteraction: false,
+            enabled: false,
         },
         navigation: {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev',
+        },
+        on: {
+            slideChange: function() {
+                this.autoplay.start();
+            },
         },
     });
 }
